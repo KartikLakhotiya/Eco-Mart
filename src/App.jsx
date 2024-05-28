@@ -18,6 +18,7 @@ import AddProduct from './pages/admin/pages/AddProduct';
 import UpdateProduct from './pages/admin/pages/UpdateProduct';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <MyState>
@@ -35,7 +36,7 @@ function App() {
           <Route path="/addproduct" element={<AddProduct/>} />
           <Route path="/updateproduct" element={<UpdateProduct/>} />
         </Routes>
-          <ToastContainer/>
+          <Toaster/>
       </Router>
 
     </MyState>

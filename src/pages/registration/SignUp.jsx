@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import myContext from '../../context/data/myContext';
-import { toast } from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import './SignUp.css'
+import './SignUp.css';
 import { auth, fireDB } from '../../firebase/FirebaseConfig';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import Loader from '../../components/loader/Loader';
+import toast from 'react-hot-toast';
 
 function Signup() {
     const [name, setName] = useState("");
@@ -17,79 +17,71 @@ function Signup() {
     const { loading, setLoading } = context;
 
     const signup = async () => {
-
-        setLoading(true)
+        setLoading(true);
 
         if (name === "" || email === "" || password === "") {
-            return toast.error("All fields are required")
+            toast.error("All fields are required");
+            setLoading(false);
+            return;
         }
 
-        //email
-        var atIdx = email.indexOf("@")
-        var dotIdx = email.indexOf(".")
-        if(atIdx > 0 && dotIdx > atIdx + 1 && email.length > dotIdx){
-            console.log('correct')
-        }
-        else{
-            return toast.error("Invalid Email.")
+        var atIdx = email.indexOf("@");
+        var dotIdx = email.indexOf(".");
+        if(atIdx <= 0 || dotIdx <= atIdx + 1 || email.length <= dotIdx){
+            toast.error("Invalid Email.");
+            setLoading(false);
+            return;
         }
 
         try {
-
-            const users = await createUserWithEmailAndPassword(auth, email, password)
+            const users = await createUserWithEmailAndPassword(auth, email, password);
             const user = {
                 name: name,
                 uid: users.user.uid,
                 email: users.user.email,
                 time: Timestamp.now()
-            }
+            };
 
-            const userRef = collection(fireDB,"users")
-            await addDoc(userRef, user)
-            
-            toast.success("Sign Up Successful")
+            const userRef = collection(fireDB,"users");
+            await addDoc(userRef, user);
+
+            toast.success("Sign Up Successful");
             setName("");
             setEmail("");
             setPassword("");
 
-            setLoading(false)
-            // console.log(users)
-            
-            
-
         } catch (error) {
-            console.log(error)
-            setLoading(false)
+            console.log(error);
+            toast.error("Error signing up");
+        } finally {
+            setLoading(false);
         }
-        
-        
-            
-        // console.log(name,email,password)
     }
 
     return (
-        <div className=' flex justify-center items-center h-screen signup'>
-            {loading && <Loader/>}
-            <div className=' bg-gray-800 px-10 py-10 rounded-xl '>
-                <div className="">
+        <div className='flex justify-center items-center h-screen signup'>
+            {loading && <Loader />}
+            <div className='bg-gray-800 px-10 py-10 rounded-xl'>
+                <div>
                     <h1 className='text-center text-white text-xl mb-4 font-bold'>Signup</h1>
                 </div>
                 <div>
-                    <input type="text"
+                    <input
+                        type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         name='name'
-                        className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
+                        className='bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                         placeholder='Name'
                     />
                 </div>
-
                 <div>
-                    <input type="text"
+                    <input
+                        type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         name='email'
-                        className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
+                        className='bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                         placeholder='Email'
                     />
                 </div>
@@ -98,23 +90,23 @@ function Signup() {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
+                        className='bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                         placeholder='Password'
                     />
                 </div>
-                <div className=' flex justify-center mb-3'>
+                <div className='flex justify-center mb-3'>
                     <button
                         onClick={signup}
-                        className=' bg-red-500 w-full text-white font-bold  px-2 py-2 rounded-lg'>
+                        className='bg-red-500 w-full text-white font-bold px-2 py-2 rounded-lg'>
                         Signup
                     </button>
                 </div>
                 <div>
-                    <h2 className='text-white'>Have an account <Link className=' text-red-500 font-bold' to={'/login'}>Login</Link></h2>
+                    <h2 className='text-white'>Have an account <Link className='text-red-500 font-bold' to={'/login'}>Login</Link></h2>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Signup
+export default Signup;
