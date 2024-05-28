@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './SignUp.css'
 import { auth, fireDB } from '../../firebase/FirebaseConfig';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import Loader from '../../components/loader/Loader';
 
 function Signup() {
     const [name, setName] = useState("");
@@ -16,6 +17,8 @@ function Signup() {
     const { loading, setLoading } = context;
 
     const signup = async () => {
+
+        setLoading(true)
 
         if (name === "" || email === "" || password === "") {
             return toast.error("All fields are required")
@@ -43,17 +46,20 @@ function Signup() {
 
             const userRef = collection(fireDB,"users")
             await addDoc(userRef, user)
-
+            
+            toast.success("Sign Up Successful")
             setName("");
             setEmail("");
             setPassword("");
+
+            setLoading(false)
             // console.log(users)
             
             
-            toast.success("Sign Up Successful")
 
         } catch (error) {
             console.log(error)
+            setLoading(false)
         }
         
         
@@ -63,7 +69,7 @@ function Signup() {
 
     return (
         <div className=' flex justify-center items-center h-screen signup'>
-            {/* {loading && <Loader/>} */}
+            {loading && <Loader/>}
             <div className=' bg-gray-800 px-10 py-10 rounded-xl '>
                 <div className="">
                     <h1 className='text-center text-white text-xl mb-4 font-bold'>Signup</h1>
