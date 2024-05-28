@@ -4,7 +4,7 @@ import Footer from '../footer/Footer'
 
 const Layout = ({children}) => {
   return (
-    <div>
+    <div style={{marginBottom: 'auto'}}>
         <Navbar/>
         <div className="content">
             {children}
