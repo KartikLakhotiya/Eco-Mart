@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './SignUp.css'
 import { auth, fireDB } from '../../firebase/FirebaseConfig';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 
 function Signup() {
     const [name, setName] = useState("");
@@ -21,14 +21,26 @@ function Signup() {
             return toast.error("All fields are required")
         }
 
+        //email
+        var atIdx = email.indexOf("@")
+        var dotIdx = email.indexOf(".")
+        if(atIdx > 0 && dotIdx > atIdx + 1 && email.length > dotIdx){
+            console.log('correct')
+        }
+        else{
+            return toast.error("Invalid Email.")
+        }
+
         try {
 
             const users = await createUserWithEmailAndPassword(auth, email, password)
             const user = {
                 name: name,
                 uid: users.user.uid,
-                email: users.user.email
+                email: users.user.email,
+                time: Timestamp.now()
             }
+
             const userRef = collection(fireDB,"users")
             await addDoc(userRef, user)
 
@@ -67,7 +79,7 @@ function Signup() {
                 </div>
 
                 <div>
-                    <input type="email"
+                    <input type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         name='email'
