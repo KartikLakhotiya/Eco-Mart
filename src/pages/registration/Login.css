@@ -1,0 +1,7 @@
+.login{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.452);
+    background-image: url('/public/form-bg.jpg');
+    background-image: cover;
+}
