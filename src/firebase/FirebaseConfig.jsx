@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB-as9ZLe40FvFT7RmOdFXnI2ZTwOuD77c",
+  apiKey: process.env.API_KEY,
   authDomain: "eco-mart-f9671.firebaseapp.com",
   projectId: "eco-mart-f9671",
   storageBucket: "eco-mart-f9671.appspot.com",
