@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import MyContext from './myContext';
-import { Timestamp, addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
+import { Timestamp, addDoc, collection, deleteDoc, doc, getDocs, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
 import { fireDB } from '../../firebase/FirebaseConfig';
 import toast from 'react-hot-toast';
 
@@ -123,15 +123,57 @@ function MyState(props) {
     }
   }
 
+  const [order, setOrder] = useState([]);
+
+  const getOrderData = async () => {
+    setLoading(true)
+    try {
+      const result = await getDocs(collection(fireDB, "orders"))
+      const ordersArray = [];
+      result.forEach((doc) => {
+        ordersArray.push(doc.data());
+        setLoading(false)
+      });
+      setOrder(ordersArray);
+      console.log('Orders Array',ordersArray)
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+
+  const [user, setUser] = useState([]);
+
+  const getUserData = async () => {
+    setLoading(true)
+    try {
+      const result = await getDocs(collection(fireDb, "user"))
+      const usersArray = [];
+      result.forEach((doc) => {
+        usersArray.push(doc.data());
+        setLoading(false)
+      });
+      setUser(usersArray);
+      console.log(usersArray)
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+
   useEffect(() => {
     getProductData();
+    getOrderData();
+    getUserData();
   }, []);
 
 
   return (
     <MyContext.Provider value={{ 
       mode, toggleMode, loading,setLoading,
-      products, setProducts,addProduct,product, edithandle, updateProduct, deleteProduct }}>
+      products, setProducts,addProduct,product, edithandle, updateProduct, deleteProduct, order , user}}>
       {props.children}
     </MyContext.Provider>
   )

@@ -24,6 +24,8 @@ export default function Navbar() {
 
   const cartItems = useSelector((state) => state.cart)
 
+  const emailNav = JSON.parse(localStorage.getItem("user")).result.user.email;
+
 
   return (
     
@@ -150,6 +152,10 @@ export default function Navbar() {
 
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
+                  </Link>
+
+                  <Link to={'/'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    {emailNav}
                   </Link>
 
                   {
