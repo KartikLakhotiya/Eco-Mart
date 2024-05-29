@@ -23,7 +23,6 @@ export default function Navbar() {
   }
 
   const cartItems = useSelector((state) => state.cart)
-
   const emailNav = JSON.parse(localStorage.getItem("user")).result.user.email;
 
 
@@ -138,9 +137,9 @@ export default function Navbar() {
 
               </button>
 
-              {/* Logo */}
+              <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
               <div className="ml-4 flex lg:ml-0">
-                <Link to={'/'} className='flex'>
+                <Link to={'/home'} className='flex'>
                   <div className="flex ">
                     <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>EcoMart</h1>
                   </div>
@@ -154,7 +153,7 @@ export default function Navbar() {
                     All Products
                   </Link>
 
-                  <Link to={'/'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     {emailNav}
                   </Link>
 

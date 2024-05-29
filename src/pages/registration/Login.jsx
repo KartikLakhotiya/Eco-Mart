@@ -6,6 +6,8 @@ import { auth } from '../../firebase/FirebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Loader from '../../components/loader/Loader';
 import toast from 'react-hot-toast';
+import Navbar from '../../components/navbar/Navbar';
+import LoginNav from '../../components/navbar/LoginNav';
 
 
 function Login() {
@@ -40,11 +42,10 @@ function Login() {
         try {
           const result = await signInWithEmailAndPassword(auth, email, password)
           localStorage.setItem('user',JSON.stringify({result}));
-          navigate('/')
 
           toast.success('Login Successfully',{duration:4000});
           setTimeout(() => {
-            navigate('/');
+            navigate('/home');
             }, 2000);
           setLoading(false);
         } 
@@ -64,6 +65,8 @@ function Login() {
       }
    
     return (
+        <div className="login">
+            <LoginNav/>
         <div className=' flex justify-center items-center h-screen login'>
             {loading && <Loader/>}
             <div className=' bg-gray-800 px-10 py-10 rounded-xl '>
@@ -99,6 +102,7 @@ function Login() {
                     <h2 className='text-white'>Don't have an account <Link className=' text-yellow-500 font-bold' to={'/signup'}>Signup</Link></h2>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

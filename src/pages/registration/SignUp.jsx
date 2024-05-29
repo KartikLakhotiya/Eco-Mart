@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import myContext from '../../context/data/myContext';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './SignUp.css';
@@ -7,6 +7,7 @@ import { auth, fireDB } from '../../firebase/FirebaseConfig';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import Loader from '../../components/loader/Loader';
 import toast from 'react-hot-toast';
+import LoginNav from '../../components/navbar/LoginNav';
 
 function Signup() {
     const [name, setName] = useState("");
@@ -15,6 +16,8 @@ function Signup() {
 
     const context = useContext(myContext);
     const { loading, setLoading } = context;
+
+    const navigate = useNavigate();
 
     const signup = async () => {
         setLoading(true);
@@ -49,6 +52,9 @@ function Signup() {
             setName("");
             setEmail("");
             setPassword("");
+            setTimeout(() => {
+                navigate('/')
+            }, 2000);
 
         } catch (error) {
             console.log(error);
@@ -59,6 +65,8 @@ function Signup() {
     }
 
     return (
+        <div className='signup'>
+            <LoginNav/>
         <div className='flex justify-center items-center h-screen signup'>
             {loading && <Loader />}
             <div className='bg-gray-800 px-10 py-10 rounded-xl'>
@@ -105,6 +113,7 @@ function Signup() {
                     <h2 className='text-white'>Have an account <Link className='text-red-500 font-bold' to={'/login'}>Login</Link></h2>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

@@ -20,13 +20,15 @@ import UpdateProduct from './pages/admin/pages/UpdateProduct';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { Toaster } from 'react-hot-toast';
+import AllProducts from './pages/allproducts/AllProducts';
 function App() {
   return (
     <MyState>
       
       <Router>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Login/>} />
+          <Route path="/login" element={<Login/>} />
           <Route path='/order' element={
             <ProtectedRoutes>
               <Orders/>
@@ -38,8 +40,9 @@ function App() {
               <Dashboard/>
             </ProtectedRoutesForAdmin>
           } />
+          <Route path="/allproducts" element={<AllProducts/>} />
           <Route path="/*" element={<NoPage/>} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/home" element={<Home/>} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/productinfo/:id" element={<ProductInfo/>} />
           <Route path="/addproduct" element={
