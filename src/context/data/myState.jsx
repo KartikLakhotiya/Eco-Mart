@@ -72,6 +72,7 @@ function MyState(props) {
         orderBy("time"),
         // limit(5)
       );
+      console.log('Products',q)
       const data = onSnapshot(q, (QuerySnapshot) => {
         let productsArray = [];
         QuerySnapshot.forEach((doc) => {

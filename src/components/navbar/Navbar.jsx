@@ -24,11 +24,12 @@ export default function Navbar() {
 
   const cartItems = useSelector((state) => state.cart)
   const emailNav = JSON.parse(localStorage.getItem("user")).result.user.email;
+  console.log(emailNav)
 
 
   return (
     
-    <div className='bg-white sticky top-0 z-50'>
+    <div className='bg-gray-800 border-gray-200 dark:bg-gray-900 sticky top-0 z-50'>
       <Transition show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
           <TransitionChild
@@ -117,7 +118,7 @@ export default function Navbar() {
           </div>
         </Dialog>
       </Transition>
-      <header className="relative bg-white">
+      <header className="relative bg-gray-800">
         <p className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
           Get free delivery on orders over ₹300
         </p>
@@ -136,8 +137,8 @@ export default function Navbar() {
                 </svg>
 
               </button>
-
-              <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                  
+              <Link to='/home'><img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /></Link>
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/home'} className='flex'>
                   <div className="flex ">
@@ -153,7 +154,7 @@ export default function Navbar() {
                     All Products
                   </Link>
 
-                  <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  <Link to={'/home'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     {emailNav}
                   </Link>
 

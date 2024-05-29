@@ -19,7 +19,9 @@ function Signup() {
 
     const navigate = useNavigate();
 
-    const signup = async () => {
+    const signup = async (e) => {
+
+        e.preventDefault();
         setLoading(true);
 
         if (name === "" || email === "" || password === "") {
@@ -48,7 +50,7 @@ function Signup() {
             const userRef = collection(fireDB,"users");
             await addDoc(userRef, user);
 
-            toast.success("Sign Up Successful");
+            toast.success("Sign Up Successful now you can Login.");
             setName("");
             setEmail("");
             setPassword("");
@@ -66,6 +68,7 @@ function Signup() {
 
     return (
         <div className='signup'>
+            <form onSubmit={signup}>
             <LoginNav/>
         <div className='flex justify-center items-center h-screen signup'>
             {loading && <Loader />}
@@ -103,17 +106,15 @@ function Signup() {
                     />
                 </div>
                 <div className='flex justify-center mb-3'>
-                    <button
-                        onClick={signup}
-                        className='bg-red-500 w-full text-white font-bold px-2 py-2 rounded-lg'>
-                        Signup
-                    </button>
+                    <input type="submit" className='bg-blue-500 w-full text-white font-bold px-2 py-2 rounded-lg'/>
+                   
                 </div>
                 <div>
-                    <h2 className='text-white'>Have an account <Link className='text-red-500 font-bold' to={'/login'}>Login</Link></h2>
+                    <h2 className='text-white'>Have an account <Link className='text-green-500 font-bold' to={'/login'}>Login</Link></h2>
                 </div>
             </div>
         </div>
+        </form>
         </div>
     );
 }

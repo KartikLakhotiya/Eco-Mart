@@ -9,11 +9,11 @@ const firebaseConfig = {
   projectId: "eco-mart-f9671",
   storageBucket: "eco-mart-f9671.appspot.com",
   messagingSenderId: "609444597631",
-  appId: "1:609444597631:web:f98cdb3b78c5fa1410544a"
+  appId: "1:609444597631:web:f98cdb3b78c5fa1410544a",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const fireDB = getFirestore(app);
-const auth = getAuth(app)
-export {fireDB,auth } ;
+const auth = getAuth(app);
+export { fireDB, auth };

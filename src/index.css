@@ -19,3 +19,11 @@
 *{
     font-family: 'Inter';
 }
+
+a{
+    cursor: pointer;
+}
+body{
+    background-image: url('/form-bg.jpg');
+    background-image: cover;
+}
