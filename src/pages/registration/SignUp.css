@@ -1,7 +1,20 @@
-.signup{
+.signup {
     width: 100vw;
     height: 90.78vh;
-    background-color: rgba(0, 0, 0, 0.452);
-    background-image: url('/form-bg.jpg');
-    background-image: cover;
+}
+
+.login-form {
+    margin-left: 40rem;
+    margin-bottom: 70rem;
+    overflow: hidden;
+}
+
+.login-card {
+    margin-left: 20rem;
+    margin-top: 7rem;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
 }

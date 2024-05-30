@@ -24,38 +24,38 @@ import AllProducts from './pages/allproducts/AllProducts';
 function App() {
   return (
     <MyState>
-      
+
       <Router>
         <Routes>
-          <Route path="/" element={<Login/>} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path='/order' element={
             <ProtectedRoutes>
-              <Orders/>
+              <Orders />
             </ProtectedRoutes>
           }></Route>
-          <Route path="/cart" element={<Cart/>} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/dashboard" element={
             <ProtectedRoutesForAdmin>
-              <Dashboard/>
+              <Dashboard />
             </ProtectedRoutesForAdmin>
           } />
-          <Route path="/allproducts" element={<AllProducts/>} />
-          <Route path="/*" element={<NoPage/>} />
-          <Route path="/home" element={<Home/>} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route path="/productinfo/:id" element={<ProductInfo/>} />
+          <Route path="/allproducts" element={<AllProducts />} />
+          <Route path="/*" element={<NoPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/addproduct" element={
-          <ProtectedRoutesForAdmin>
-            <AddProduct/>
-          </ProtectedRoutesForAdmin>} />
+            <ProtectedRoutesForAdmin>
+              <AddProduct />
+            </ProtectedRoutesForAdmin>} />
           <Route path="/updateproduct" element={
             <ProtectedRoutesForAdmin>
-              <UpdateProduct/>
+              <UpdateProduct />
             </ProtectedRoutesForAdmin>
           } />
         </Routes>
-          <Toaster/>
+        <Toaster />
       </Router>
 
     </MyState>
@@ -73,9 +73,9 @@ export const ProtectedRoutes = ({ children }) => {
   }
 }
 
-export const ProtectedRoutesForAdmin = ({children}) => {
+export const ProtectedRoutesForAdmin = ({ children }) => {
   const result = JSON.parse(localStorage.getItem('user'))
-  console.log("result",result)
+  console.log("result", result)
   console.log(result.result.user.email)
   if (result.result.user.email === "admin@gmail.com") {
     return children

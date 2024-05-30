@@ -175,12 +175,14 @@ export default function Navbar() {
                     </Link> : ""}
 
                   {user ?
-                    <button className="p-[3px] relative">
-                      <div className="absolute inset-0 " />
-                      <div className="px-8 py-1.5  bg-red-600 rounded-[6px]  relative group transition duration-200 text-white hover:bg-red-800">
-                        Logout
-                      </div>
-                    </button>
+                    <Link to={'/'}>
+                      <button className="p-[3px] relative" onClick={logout}>
+                        <div className="absolute inset-0 " />
+                        <div className="px-8 py-1.5  bg-red-600 rounded-[6px]  relative group transition duration-200 text-white hover:bg-red-800">
+                          Logout
+                        </div>
+                      </button>
+                    </Link>
                     :
                     ""}
                 </div>
