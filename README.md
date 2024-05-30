@@ -17,8 +17,8 @@ Eco Mart is an ecommerce application built with React and Vite. It has both user
 - Manage product inventory
 
 ## Tech Stack
-- **Frontend:** React, Vite
-- **State Management:** Redux
+- **Frontend:** React, Vite, Tailwind CSS
+- **State Management:** Redux Toolkit
 - **Backend:** Firebase Firestore
 - **Payment Gateway:** Razorpay (test mode)
 
