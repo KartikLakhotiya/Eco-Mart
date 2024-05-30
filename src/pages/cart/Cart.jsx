@@ -129,7 +129,7 @@ function Cart() {
 
 
   return (
-    <div>
+    <div >
       <Navbar />
       <div className="h-screen pt-5 pb-20" style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
