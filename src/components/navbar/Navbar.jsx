@@ -190,7 +190,12 @@ export default function Navbar() {
 
                   {user?.result?.user?.email === "admin@gmail.com" ?
                     <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Admin
+                      <button className="p-[3px] relative">
+                        <div className="absolute inset-0 " />
+                        <div className="px-8 py-2  bg-blue-600 rounded-[6px]  relative group transition duration-200 text-white hover:bg-blue-800">
+                          Dashboard
+                        </div>
+                      </button>
                     </Link> : ""}
 
                   {user ?
