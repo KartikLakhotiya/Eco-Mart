@@ -21,6 +21,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { Toaster } from 'react-hot-toast';
 import AllProducts from './pages/allproducts/AllProducts';
+import UserInfo from './pages/user/UserInfo';
 function App() {
   return (
     <MyState>
@@ -35,6 +36,7 @@ function App() {
             </ProtectedRoutes>
           }></Route>
           <Route path="/cart" element={<Cart />} />
+          <Route path='/userinfo' element={<UserInfo />} />
           <Route path="/dashboard" element={
             <ProtectedRoutesForAdmin>
               <Dashboard />

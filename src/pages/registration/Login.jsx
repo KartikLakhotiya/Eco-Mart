@@ -72,12 +72,12 @@ function Login() {
   return (
     <>
       <LoginNav />
-      <div className="login-card" onClick={() => { return toast.error("Login First.") }} >
+      <div className="login-card" >
 
 
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 custom-card">
           <a>
-            <img class="rounded-t-lg" src="/login-img.jpg" alt="" />
+            <img class="rounded-t-lg" src="/login-img.jpg" alt="" onClick={() => { return toast.error("Login First.") }}/>
           </a>
           <div class="p-5">
             <a>

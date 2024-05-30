@@ -1,0 +1,11 @@
+.user-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+}
+
+.user-details {
+    max-width: 400px;
+    width: 100%;
+}
