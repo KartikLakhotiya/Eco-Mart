@@ -13,7 +13,7 @@ export default function Navbar() {
   const context = useContext(myContext)
   const { toggleMode, mode } = context
 
-  
+
   const user = JSON.parse(localStorage.getItem('user'))
   // console.log('User',user.result.user.email)
 
@@ -28,7 +28,7 @@ export default function Navbar() {
 
 
   return (
-    
+
     <div className='bg-gray-800 border-gray-200 dark:bg-gray-900 sticky top-0 z-50'>
       <Transition show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -66,32 +66,32 @@ export default function Navbar() {
                   </button>
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  
+
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
-                  
-                  {
-                    user ? <div className="flow-root">
-                    <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
-                      Order
-                    </Link>
-                  </div> : ""
-                  }
-                  
-                  {
-                    user?.result?.user?.email === "admin@gmail.com" ? <div className="flow-root">
-                    <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      admin
-                    </Link>
-                  </div>: "" }
 
                   {
                     user ? <div className="flow-root">
-                    <a className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
-                      Logout
-                    </a>
-                  </div> : ""
+                      <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
+                        Order
+                      </Link>
+                    </div> : ""
+                  }
+
+                  {
+                    user?.result?.user?.email === "admin@gmail.com" ? <div className="flow-root">
+                      <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                        admin
+                      </Link>
+                    </div> : ""}
+
+                  {
+                    user ? <div className="flow-root">
+                      <a className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                        Logout
+                      </a>
+                    </div> : ""
                   }
                   <div className="flow-root">
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
@@ -137,7 +137,7 @@ export default function Navbar() {
                 </svg>
 
               </button>
-                  
+
               <Link to='/home'><img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /></Link>
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/home'} className='flex'>
@@ -160,18 +160,29 @@ export default function Navbar() {
 
                   {
                     user ? <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Order
-                  </Link> : ""
+                      <button className="p-[3px] relative">
+                        <div className="absolute inset-0 " />
+                        <div className="px-8 py-2  bg-blue-600 rounded-[6px]  relative group transition duration-200 text-white hover:bg-blue-800">
+                          View Orders
+                        </div>
+                      </button>
+                    </Link> : ""
                   }
 
-                  { user?.result?.user?.email === "admin@gmail.com" ?
-                  <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Admin
-                  </Link> : "" }
+                  {user?.result?.user?.email === "admin@gmail.com" ?
+                    <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Admin
+                    </Link> : ""}
 
-                  {user ? <a onClick={logout} className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Logout
-                  </a> : ""}
+                  {user ?
+                    <button className="p-[3px] relative">
+                      <div className="absolute inset-0 " />
+                      <div className="px-8 py-1.5  bg-red-600 rounded-[6px]  relative group transition duration-200 text-white hover:bg-red-800">
+                        Logout
+                      </div>
+                    </button>
+                    :
+                    ""}
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -222,6 +233,6 @@ export default function Navbar() {
         </nav>
       </header>
     </div>
-    
+
   )
 }
