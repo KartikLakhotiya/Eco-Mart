@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../firebase/FirebaseConfig';
 import Navbar from '../../components/navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 
 function Cart() {
@@ -16,6 +17,7 @@ function Cart() {
   const { mode } = context;
 
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const cartItems = useSelector((state) => state.cart)
   console.log(cartItems)
@@ -81,6 +83,9 @@ function Cart() {
       handler: function (response) {
         console.log(response)
         toast.success('Payment Successful')
+        setTimeout(() => {
+          navigate('/order')
+        }, 3000);
 
 
         const paymentId = response.razorpay_payment_id

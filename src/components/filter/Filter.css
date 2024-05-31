@@ -1,3 +1,7 @@
-.filter-home{
+.filter-home {
     width: 1200px;
+}
+
+.search-bar {
+    margin-bottom: -11px;
 }
