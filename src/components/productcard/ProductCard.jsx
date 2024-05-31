@@ -65,7 +65,7 @@ function ProductCard() {
                     </div>
                     <div className="p-5 border-t-2">
                       <h2
-                        className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                        className="tracking-widest text-xs title-font font-medium text-gray-800 mb-1"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         Eco Mart
@@ -78,7 +78,7 @@ function ProductCard() {
                       </h1>
                       {/* <p className="leading-relaxed mb-3">{item.description.}</p> */}
                       <p
-                        className="leading-relaxed mb-3"
+                        className="leading-relaxed mb-3 text-gray-900"
                         style={{ color: mode === "dark" ? "white" : "" }}
                       >
                         ₹ {price}
