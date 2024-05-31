@@ -138,7 +138,7 @@ function Signup() {
                             <button
                                 type="submit"
                                 className='bg-blue-500 w-full text-white font-bold px-2 py-2 rounded-lg'>
-                                Login
+                                Sign Up
                             </button>
                         </div>
                         <div>
