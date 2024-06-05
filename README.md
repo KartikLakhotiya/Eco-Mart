@@ -37,8 +37,8 @@ Eco Mart is an ecommerce application built with React and Vite. It has both user
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/eco-mart.git
-   cd eco-mart
+   git clone https://github.com/KartikLakhotiya/Eco-Mart.git
+   cd Eco-Mart
 
 2. **Install dependencies**
     ```bash
