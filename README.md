@@ -3,7 +3,7 @@ https://eco-mart-pi.vercel.app/
 
 # Eco Mart
 
-Eco Mart is an ecommerce application built with React and Vite. It has both user and admin sides, supports Razorpay payment gateway in test mode, and uses localStorage to persist users' items in the cart even after logout.
+Eco Mart is an ecommerce application built with React and Vite. It has both user and admin sides, supports Razorpay payment gateway in test mode, and uses localStorage to persist users' items in the cart even after logout. Ps :- This is not mobile responsive yet better to use on a desktop.
 
 ## Features
 
@@ -37,8 +37,8 @@ Eco Mart is an ecommerce application built with React and Vite. It has both user
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/eco-mart.git
-   cd eco-mart
+   git clone https://github.com/KartikLakhotiya/Eco-Mart.git
+   cd Eco-Mart
 
 2. **Install dependencies**
     ```bash
