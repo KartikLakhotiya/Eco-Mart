@@ -71,7 +71,7 @@ export const ProtectedRoutes = ({ children }) => {
     return children
   }
   else {
-    return <Navigate to='/login' />
+    return <Navigate to='/' />
   }
 }
 
