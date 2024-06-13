@@ -16,7 +16,7 @@ export default function Footer() {
                                 <Link to='/home'><a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Home</a></Link>
                             </li>
                             <li>
-                                <Link to='/orders'><a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Orders</a></Link>
+                                <Link to='/order'><a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Orders</a></Link>
                             </li>
                             <li>
                                 <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Local For Vocal</a>

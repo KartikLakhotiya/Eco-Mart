@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Carousel } from 'flowbite-react';
 
-function HeroSection() {
+const HeroSection = () => {
   return (
-    <div>
-        <img src="https://static.vecteezy.com/system/resources/previews/004/299/835/original/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg" alt="" />
+    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 w-full overflow-hidden">
+      <Carousel>
+        <img src="/carousel2.jpg" className='object-cover w-full' alt="Slide 1" />
+        <img src="/carousel3.jpg" className='object-cover w-full' alt="Slide 2" />
+        <img src="/carousel1.jpg" className='object-cover w-full' alt="Slide 3" />
+      </Carousel>
     </div>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
