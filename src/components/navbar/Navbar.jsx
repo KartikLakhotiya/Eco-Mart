@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const logout = () => {
     localStorage.clear('user');
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 
   const cartItems = useSelector((state) => state.cart)
