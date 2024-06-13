@@ -120,7 +120,7 @@ export default function Navbar() {
       </Transition>
       <header className="relative bg-gray-800">
         <p className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8" style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
-          20% Off on your First Order
+          Welcome to Eco Mart. Find Products at Lowest Rates.
         </p>
 
         <nav aria-label="Top" className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
@@ -138,7 +138,8 @@ export default function Navbar() {
 
               </button>
 
-              <Link to='/home'><img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /></Link>
+              <Link to='/home'><img width="48" height="48" src="https://img.icons8.com/fluency/48/shopping-cart-promotion.png" alt="logo" />
+              </Link>
               <div className="ml-4 flex lg:ml-0">
                 <Link to={'/home'} className='flex'>
                   <div className="flex ">

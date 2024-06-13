@@ -79,6 +79,13 @@ Eco Mart is an ecommerce application built with React and Vite. It has both user
 ## Contributing
 - Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
 
+## Bugs
+All the Major functionalities is working properly but there are some minor bugs which I will fix soon.
+- Not yet Mobile responsive.
+- If same item is added in the cart more than once and after that you delete any one of them then all the items gets deleted.
+- Redirects to payment even if no items are added in cart.
+
+
 
 ## License
 - This project is licensed under the MIT License.
