@@ -50,7 +50,7 @@ function Signup() {
             const userRef = collection(fireDB, "users");
             await addDoc(userRef, user);
 
-            toast.success("Sign Up Successful now you can Login.");
+            toast.success("Signed Up Successful.");
             setName("");
             setEmail("");
             setPassword("");

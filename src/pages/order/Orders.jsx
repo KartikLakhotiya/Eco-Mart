@@ -10,7 +10,6 @@ function Order() {
   const { mode, loading, order } = context
   return (
     <Layout>
-      {loading && <Loader />}
       {order.length > 0 ?
         (<>
           <div className="h-full pt-10">
@@ -46,7 +45,7 @@ function Order() {
         </>)
         :
         (
-          <h2 className=' text-center tex-2xl text-white'>No Orders Found.</h2>
+          <h2 className='mx-96 my-36 text-center tex-4xl text-black font-bold'>Fetching Your Orders Please Wait...</h2>
         )
 
       }

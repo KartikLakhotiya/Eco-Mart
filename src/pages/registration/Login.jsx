@@ -47,7 +47,7 @@ function Login() {
       // console.log("login", result)
       localStorage.setItem('user', JSON.stringify({ result }));
 
-      toast.success('Login Successfully', { duration: 4000 });
+      toast.success('Logged in Successfully', { duration: 4000 });
       setTimeout(() => {
         navigate('/home');
       }, 2000);
@@ -77,7 +77,7 @@ function Login() {
 
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 custom-card">
           <a>
-            <img class="rounded-t-lg" src="/login-img.jpg" alt="" onClick={() => { return toast.error("Login First.") }}/>
+            <img class="rounded-t-lg" src="/login-img.jpg" alt="" onClick={() => { return toast.error("Login First.") }} />
           </a>
           <div class="p-5">
             <a>
