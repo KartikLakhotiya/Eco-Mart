@@ -72,7 +72,7 @@ function MyState(props) {
         orderBy("time"),
         // limit(5)
       );
-      console.log('Products',q)
+      // console.log('Products',q)
       const data = onSnapshot(q, (QuerySnapshot) => {
         let productsArray = [];
         QuerySnapshot.forEach((doc) => {
@@ -136,7 +136,7 @@ function MyState(props) {
         setLoading(false)
       });
       setOrder(ordersArray);
-      console.log('Orders Array',ordersArray)
+      // console.log('Orders Array',ordersArray)
       setLoading(false);
     } catch (error) {
       console.log(error)
@@ -156,7 +156,7 @@ function MyState(props) {
         setLoading(false)
       });
       setUser(usersArray);
-      console.log(usersArray)
+      // console.log(usersArray)
       setLoading(false);
     } catch (error) {
       console.log(error)

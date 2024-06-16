@@ -24,7 +24,7 @@ export default function Navbar() {
 
   const cartItems = useSelector((state) => state.cart)
   const emailNav = JSON.parse(localStorage.getItem("user")).result.user.email;
-  console.log(emailNav)
+  // console.log(emailNav)
 
 
   return (

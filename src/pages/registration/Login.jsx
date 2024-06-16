@@ -44,7 +44,7 @@ function Login() {
     setLoading(true);
     try {
       const result = await signInWithEmailAndPassword(auth, email, password)
-      console.log("login", result)
+      // console.log("login", result)
       localStorage.setItem('user', JSON.stringify({ result }));
 
       toast.success('Login Successfully', { duration: 4000 });
