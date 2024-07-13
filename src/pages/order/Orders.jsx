@@ -28,7 +28,6 @@ function Order() {
                                   <h2 className="text-[30px] font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.title}</h2>
                                   <p className="mt-1 text-sm text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.description}</p>
                                   <p className="mt-1 text-sm text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.price}</p>
-                                  <p className="mt-1 text-sm text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Date Ordered: {item.date}</p>
                                 </div>
                               </div>
                             </div>

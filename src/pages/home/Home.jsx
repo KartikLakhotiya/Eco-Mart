@@ -31,7 +31,7 @@ function Home() {
         <button className=' bg-gray-300 p-5' onClick={()=> deleteCart()}>del</button>
       </div> */}
       <HeroSection/>
-      <Filter />
+      {/* <Filter /> */}
       <ProductCard />
       <div className='flex justify-center -mt-10 mb-4'>
         <Link to='/allproducts'>
