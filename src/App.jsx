@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     const mobileMediaQuery = window.matchMedia("(max-width: 760px)");
-    
+
     const handleViewportChange = (event) => {
       setIsMobile(event.matches);
       if (event.matches !== isMobile) {
@@ -49,7 +49,7 @@ function App() {
       <div>
         <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mt-[230px] ml-3">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Website only Available on Desktop</h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">The Mobile version of this website is still work in progress so please switch to a desktop to use this website.</p>
+          <p className="font-normal text-gray-700 dark:text-gray-400">The Mobile version of this website is still work in progress so please switch to a desktop to use this website.(FYI : Switching to Desktop site on a mobile device will work but the UI will get jumbled so it's not recommended to switch to desktop mode.)</p>
         </a>
       </div>
     )

@@ -71,8 +71,7 @@ function DashboardTab() {
             <TabPanel>
               <div className="  px-4 md:px-0 mb-16">
                 <h1
-                  className=" text-center mb-5 text-3xl font-semibold underline"
-                  style={{ color: mode === "dark" ? "white" : "" }}
+                  className=" text-center mb-5 text-3xl font-semibold underline text-black"
                 >
                   Product Details
                 </h1>
@@ -233,8 +232,7 @@ function DashboardTab() {
             <TabPanel>
               <div className="relative overflow-x-auto mb-16">
                 <h1
-                  className=" text-center mb-5 text-3xl font-semibold underline"
-                  style={{ color: mode === "dark" ? "white" : "" }}
+                  className=" text-center mb-5 text-3xl font-semibold underline text-black"
                 >
                   Order Details
                 </h1>
@@ -418,8 +416,7 @@ function DashboardTab() {
             <TabPanel>
               <div className="relative overflow-x-auto mb-10">
                 <h1
-                  className=" text-center mb-5 text-3xl font-semibold underline"
-                  style={{ color: mode === "dark" ? "white" : "" }}
+                  className=" text-center mb-5 text-3xl font-semibold underline dark:text-black"
                 >
                   User Details
                 </h1>
